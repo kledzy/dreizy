@@ -1,17 +1,13 @@
 --// STEAL A BRAINROT Loading Screen + FAILED UI (Fixed Order + Smooth Progressive Motion)
 local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
-task.spawn(function()
-    local StarterGui = game:GetService("StarterGui")
+local StarterGui = game:GetService("StarterGui")
 
-    -- may delay para siguradong loaded na lahat bago i-disable
-    task.wait(1)
-
-    pcall(function()
-        StarterGui:SetCore("TopbarEnabled", false)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-    end)
+pcall(function()
+    StarterGui:SetCore("TopbarEnabled", false) -- hides the top bar (settings, 3 lines)
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false) -- hides chat
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false) -- hides leaderboard
+end)
 
     -- extra loop to ensure permanent removal
     while task.wait(2) do
